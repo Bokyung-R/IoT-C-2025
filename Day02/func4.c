@@ -31,7 +31,7 @@ int main() {
 
         printf("연산자를 입력하세요 (+, -, *, /) (종료시 Q입력) : ");
         char oper;
-        scanf_s(" %c", &oper, 1);
+        scanf_s(" %c", &oper, sizeof(oper));
 
         if (oper == 'Q' || oper == 'q') {
             break;
