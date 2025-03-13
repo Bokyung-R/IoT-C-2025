@@ -2,6 +2,7 @@
 IoT 개발자 C/C++ 리포지토리
 
 ## 1일차
+
 - scanf
     ```c
     int a;
@@ -28,7 +29,7 @@ IoT 개발자 C/C++ 리포지토리
     scanf(" %c", &ch); // 앞에 띄어쓰기 추가
     ```
 
-    - scanf #define _CRT_SECURE_NO_WARNINGS 사용
+    - #define _CRT_SECURE_NO_WARNINGS 사용
 
         - #define _CRT_SECURE_NO_WARNINGS를 먼저 선언하는 경우
 
@@ -104,3 +105,89 @@ IoT 개발자 C/C++ 리포지토리
     - 반복제어문
         - for
         - while
+
+## 3일차
+- 배열 [array1](./Day03/array.c), [array2](./Day03/array2.c), [array3](./Day03/array3.c)
+    - 선언 방식
+        ```C
+        int arr1[5] = {1,2,3,4,5};
+        int arr2[] = {1,2,3,4,5};
+        int arr3[5];
+        // 위의 3가지 경우는 정상적으로 선언됨
+
+        int arr4[]; // 이경우에는 선언되지않음
+        ```
+
+    - 주소 : 배열이름은 주소
+        => arr = &arr[0], arr + 1 = &arr[1]
+
+    - char 배열 저장시에는 size보다 + 1 만큼의 공간이 필요하다. 
+
+- 포인터 [pointer1](./Day03/pointer.c) ~ [pointer7](./Day03/pointer7.c)
+    - 포인터 : 주소
+    - 포인터 변수 : 주소를 저장할 수 있는 변수
+
+    - 선언 방식 
+        ```C
+        int* p = 변수의 주소값 ;
+        ```
+    
+    - 사용법
+        ```C
+        int num = 100;
+        printf("num의 주소 :%p\t", &num);
+        printf("num의 값 : %d\n", num);
+
+        int* p = &num;											// * : 아무 의미없는 표시
+        printf("포인터변수 p에 저장된 값(주소) : %p\t", p);
+        printf("포인터변수 p가 가르키는 곳의 값 : %d\n", *p);	// * : 간접 참조 연산자
+
+        // (num += 1) == (*p += 1)
+        ```
+
+    - const
+        ```C
+        const int* pn2 = &num2;	//데이터 상수 : 포인터 변수를 통한 데이터의 변경을 불허
+        // *pn2 = 100;
+        num2 = 0;
+        pn2 = &num2;
+
+        int num3 = 40;
+        int* const pnum3 = &num3;	// 포인터 상수 : 포인터 변수가 가리키는 주소의 변경을 불허
+        *pnum3 = 100;
+        printf("%d\n", num3);
+        // pnum3 = &num2;
+
+        const int* const pn5 = &num2;
+        //*pn5 = 1000;
+        // pn5 = &num3;
+        num2 = 40;
+        ```
+
+- 문자
+    - getchar() : 한문자를 읽어보는 함수
+    - putchar() : 한문자를 출력하는 함수 
+
+    - 아스키 코드
+        - 소문자 대문자 변환시 ('a' - 'A') 활용
+        ```C
+        int main() {
+            char ch1;
+            char ch2;
+
+            printf("문자를 입력하시오 : ");
+            scanf("%c", &ch2);
+
+            if ((ch2 >= 'A') && (ch2 <= 'Z')) {
+                ch1 = ch2 + ('a' - 'A');
+            }
+            else if ((ch2 >= 'a') && (ch2 <= 'z')) {
+                ch1 = ch2 - ('a' - 'A');
+            }
+
+            printf("입력값 : %c\n", ch2);
+            printf("변환값 : %c\n", ch1);
+
+            return 0;
+        }
+        ```
