@@ -191,3 +191,84 @@ IoT 개발자 C/C++ 리포지토리
             return 0;
         }
         ```
+
+
+## 3일차
+- 문자 입력 
+    - scanf
+    - gets
+    - fgets
+        ```C
+        char str[100];
+
+        /* scanf */
+        printf("문자열 입력 >> ");
+        scanf("%s", str);
+
+        printf("문자열 : %s", str);
+        scanf("%s", str);
+        printf("다음 문자열 : %s", str);
+
+        /* gets */
+        printf("공백을 포함한 입력 >> ");
+        gets(str);
+        printf("입력 문자열 : %s\n", str);
+
+        /* fgets */
+        printf("공백을 포함한 입력 >> ");
+        fgets(str, sizeof(str), stdin);
+        printf("입력 문자열 : %s\n", str);
+        ```
+
+- 문자 출력
+    - puts
+    - fputs
+        ```C
+        char str[100] = "Delmonte orange";
+        char* ps = "banana";
+
+        printf("%s\n", str);
+        puts(str);			// 자동 개행(줄바꿈)
+        fputs(str, stdout);	// 개행 안됨
+        puts(ps);
+        fputs(ps, stdout);
+        ```
+
+- string 함수
+    - strlen(str) : 문자열 길이출력
+    - strcat(str, str1) : 문자열 추가 
+        - str = str + str1
+    - strcmp(str, str1) : 문자열 비교
+        - str이 사전에서 먼저 나오면 -1, str1이 먼저 나오면 1반환, 같으면 0반환 
+        - str1이 크면 1, str이 크면 -1
+    - strcpy(str,str1) : 문자열 복사 함수
+        - str = str1
+    
+- 변수
+    - 지역변수
+    - 정적변수
+        - 정적지역변수 
+
+- 포인터
+    - 배열포인터 : 배열을 가르키는 포인터
+    - 포인터 배열 : 포인터를 저장할 수 있는 배열
+        ```C    
+        int(* pary)[4];			// int형 변수 4개의 배열을 가리키는 배열 포인터
+
+        int* pary[4];			// 포인터 배열
+        ```
+
+    - 이중 포인터
+        ```C
+        int n = 100;
+        int* pn;
+        int** ppn;		// 이중포인터
+
+        pn = &n;		// 변수 n의 주소를 저장
+        ppn = &pn;		// 포인터변수 pn의 주소를 저장하는 이중 포인터
+
+        printf("n : %d\t n주소 : %p\n", n, &n);
+        printf("pn : %p\t pn주소 : %p\t n값 : %d\n", pn, &pn, *pn);
+        printf("ppn : %p\t ppn주소 : %p\t *ppn : %p\t **ppn : %d\n",ppn,&ppn,*ppn,**ppn);
+
+        ```
