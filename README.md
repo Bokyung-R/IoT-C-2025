@@ -193,7 +193,7 @@ IoT 개발자 C/C++ 리포지토리
         ```
 
 
-## 3일차
+## 4일차
 - 문자 입력 
     - scanf
     - gets
@@ -258,7 +258,7 @@ IoT 개발자 C/C++ 리포지토리
         int* pary[4];			// 포인터 배열
         ```
 
-    - 이중 포인터
+    - **이중 포인터**
         ```C
         int n = 100;
         int* pn;
@@ -271,4 +271,35 @@ IoT 개발자 C/C++ 리포지토리
         printf("pn : %p\t pn주소 : %p\t n값 : %d\n", pn, &pn, *pn);
         printf("ppn : %p\t ppn주소 : %p\t *ppn : %p\t **ppn : %d\n",ppn,&ppn,*ppn,**ppn);
 
+        ```
+
+
+## 5일차
+- malloc : 메모리 동적 할당
+    - 선언 방법
+        ```C
+        #inclue<malloc.h>   // 헤더파일 선언 
+
+        int* pi = (void*)malloc(sizeof(타입));
+        ...
+        free(pi);
+        ```
+
+    - calloc - 메모리 동적으로 할당하여 0으로 초기화
+    - realloc - 크기 조절
+
+- struct : 사용자 정의 자료형 : 구조체
+    - 기존 자료형을 묶어서 만든 복한 자료형
+    - 선언 방법
+        ```C
+        struct 구조체명{
+            타입 이름 ;
+            타입 이름 ;
+        };
+
+        int main(){
+            struct 구조체명 변수명;
+            ...
+            return 0;
+        }
         ```
