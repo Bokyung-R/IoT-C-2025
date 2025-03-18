@@ -29,18 +29,7 @@ int main()
 	printf("이름: ");
 	scanf_s("%s", &str,sizeof(str)); */
 
-	printf("이름: %s, 나이: %d\n", str, age); 
-
-
-	// 별개로 진행한 내용
-	int a;
-	char ch;
-
-	scanf("%d", &a);
-	getchar();
-	scanf("%c", &ch);
-
-
+	printf("이름: %s, 나이: %d\n", str, age);
 
 	return 0;
 
